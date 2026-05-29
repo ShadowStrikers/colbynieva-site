@@ -158,3 +158,21 @@
   .writeup { padding: 110px 0 60px; }
   .writeup-container { padding: 0 24px; }
 }
+/* ── WRITEUP IMAGES ── */
+.writeup-image {
+  margin: 24px 0 28px;
+}
+.writeup-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+.writeup-image figcaption {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 10px;
+  font-style: italic;
+}
