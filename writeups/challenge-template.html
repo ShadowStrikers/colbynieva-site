@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Find the Masked Man — CTF Writeup · Colby Nieva</title>
+  <title>Challenge Name — CTF Writeup · Colby Nieva</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -33,68 +33,63 @@
       <header class="writeup-header">
         <div class="writeup-meta-top">
           <span class="ctf-difficulty ctf-easy">Easy</span>
-          <span class="ctf-points">3 pts</span>
-          <span class="writeup-cat">OSINT · Geolocation</span>
+          <span class="ctf-points">100 pts</span>
+          <span class="writeup-cat">OSINT · Username Recon</span>
         </div>
-        <h1 class="writeup-title">Find the Masked Man</h1>
+        <h1 class="writeup-title">Challenge Name Here</h1>
         <p class="writeup-source">CTF · <a href="https://ctf.osint.industries/challenges" target="_blank">ctf.osint.industries</a></p>
+        <div class="writeup-date">Solved: Month Day, 2026</div>
       </header>
 
       <section class="writeup-section">
-        <h2>The Challenge</h2>
+        <h2>Challenge Description</h2>
         <blockquote class="writeup-quote">
-          A photograph was taken in Paris on December 3rd, 2023, around 18:00. Identify the nearest metro station to the location where the masked man was photographed. The scene is in a central and upscale district, near the intersection of a Rue and an Avenue.
+          Paste the original challenge prompt here — exactly as it appeared on the platform. This gives readers the same starting point you had.
         </blockquote>
-        <p>Flag format: <code>OSINT{STATION_NAME}</code> — all uppercase, no accents, underscores between words.</p>
       </section>
 
       <section class="writeup-section">
-        <h2>Initial Analysis</h2>
-        <p>I started by looking at the photograph and picking out anything that could help narrow down the location. The building in the background had classic Haussmann-style architecture — the kind you see all over central Paris. The rounded corner building, wide streets, and commercial storefronts told me this was one of the more upscale parts of the city.</p>
-        <p>The scene also looked like it was at a large intersection rather than a small side street. Since the challenge specifically mentioned an intersection involving a Rue and an Avenue, I focused on finding locations that matched that description.</p>
+        <h2>Initial Recon</h2>
+        <p>Start by describing what you noticed first. What clues were in the challenge? What did you try right away that didn't work? Walking through your dead ends shows real thinking.</p>
       </section>
 
       <section class="writeup-section">
-        <h2>Finding the Location</h2>
-        <p>The most useful clue came from examining the storefronts in the image. After zooming in and looking more closely, I was able to make out a word ending in "rie" and the name "Julien." That was enough to search for businesses in central Paris with that name.</p>
-        <p>Using Google Maps and OpenStreetMap, I located <strong>Maison Julien</strong> in central Paris. I then compared the surrounding streets and buildings to the photograph. The area matched on several key features — the shape of the intersection, the corner black-colored building, and the overall layout of the streets.</p>
-        <p>The location was near the intersection of:</p>
-        <ul class="writeup-list">
-          <li><strong>Avenue Franklin Delano Roosevelt</strong></li>
-          <li><strong>Rue du Commandant Rivière</strong></li>
-        </ul>
-        <p>This matched the clues from the challenge — a Rue meeting an Avenue — and the surrounding buildings, storefronts, and street layout all lined up with what was visible in the photo.</p>
+        <h2>Approach</h2>
+        <p>Break down your methodology step by step. Use code blocks for commands you ran:</p>
+        <pre class="writeup-code"><code>$ sherlock target_username --print-found
+[*] Checking username target_username on:
+[+] GitHub: https://github.com/target_username
+[+] Reddit: https://reddit.com/user/target_username</code></pre>
+        <p>Then walk through what each result told you and how it led to your next move.</p>
       </section>
 
       <section class="writeup-section">
-        <h2>Verification</h2>
-        <p>To make sure I had the right spot, I compared satellite imagery and Street View with the photograph. The curved corner building and nearby street layout matched the scene closely. The surrounding businesses and overall appearance of the area also checked out against the clues from the challenge.</p>
-        <p>Once I was confident in the location, the last step was finding the nearest metro station.</p>
+        <h2>The Pivot</h2>
+        <p>This is the cool part — when something clicked. What was the key insight that broke the challenge open? Was it cross-referencing two accounts? Spotting metadata in an image? Tell that story.</p>
       </section>
 
       <section class="writeup-section">
         <h2>The Flag</h2>
-        <p>Looking at the map of the area, the closest metro station was <strong>Saint-Philippe-du-Roule</strong> — only a short distance from the identified intersection.</p>
-        <p>Converted to the required format:</p>
-        <pre class="writeup-code"><code>OSINT{SAINT_PHILIPPE_DU_ROULE}</code></pre>
+        <p>How did you confirm the flag? Show the final step:</p>
+        <pre class="writeup-code"><code>FLAG{example_flag_format_here}</code></pre>
       </section>
 
       <section class="writeup-section">
-        <h2>Takeaways</h2>
+        <h2>Lessons Learned</h2>
         <ul class="writeup-list">
-          <li>Storefront text is huge for Paris geolocation — even a partial name like "Julien" can be enough to pin down a business and work outward from there</li>
-          <li>Haussmann-style buildings are everywhere in central Paris, but the specific corner shapes and intersection layouts can still help narrow things down when combined with other clues</li>
-          <li>Leading with the Avenue (instead of the Rue) was the right call here — Paris has far fewer Avenues than Rues, so it cuts the search space fast</li>
+          <li>Key takeaway #1 — what tool or technique you'd reach for faster next time</li>
+          <li>Key takeaway #2 — something you learned about how attackers think</li>
+          <li>Key takeaway #3 — connections to other challenges or real-world OSINT</li>
         </ul>
       </section>
 
       <section class="writeup-section">
-        <h2>Tools</h2>
+        <h2>Tools Used</h2>
         <div class="writeup-tools">
-          <span class="ctf-tag">Google Maps</span>
-          <span class="ctf-tag">Google Street View</span>
-          <span class="ctf-tag">OpenStreetMap</span>
-          <span class="ctf-tag">Paris Metro Map</span>
+          <span class="ctf-tag">Sherlock</span>
+          <span class="ctf-tag">Maltego</span>
+          <span class="ctf-tag">Wayback Machine</span>
+          <span class="ctf-tag">EXIFTool</span>
         </div>
       </section>
 

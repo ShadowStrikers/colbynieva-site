@@ -4,15 +4,29 @@
 
 ```
 colbynieva-site/
-├── index.html       ← page structure (the skeleton)
+├── index.html              ← homepage
+├── writeups/
+│   ├── index.html          ← list of all CTF writeups
+│   └── challenge-template.html ← template — copy this for each new writeup
 ├── css/
-│   └── style.css    ← all styling (colors, layout, animations)
+│   ├── style.css           ← main site styling
+│   └── writeup.css         ← writeup page styling
 ├── js/
-│   └── main.js      ← all scripts (typing animation, particles, boot intro)
+│   └── main.js             ← all scripts
 ├── images/
-│   └── colby.jpg    ← your profile photo
-└── README.md        ← this file
+│   └── colby.jpg           ← your profile photo
+└── README.md               ← this file
 ```
+
+## How to add a new CTF writeup
+
+1. **Copy the template:** Duplicate `writeups/challenge-template.html` and rename it (e.g. `writeups/username-recon-101.html`). Use lowercase, hyphens for spaces.
+2. **Edit the new file:**
+   - Update the `<title>` tag at the top
+   - Fill in the challenge name, difficulty, points, category, and description
+   - Replace each section's content with your actual writeup
+3. **Add a card to the homepage:** Open `index.html`, find the `<!-- CTF WRITEUPS -->` section, and add a new `<a class="ctf-card">` block pointing to your new file.
+4. **Add a card to the writeups list:** Open `writeups/index.html` and add the same card there too.
 
 ## How to make changes
 
