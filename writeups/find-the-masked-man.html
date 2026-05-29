@@ -12,7 +12,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <a href="../index.html" class="nav-logo">Colby Nieva</a>
     <ul class="nav-links">
@@ -24,7 +23,6 @@
     </ul>
   </nav>
 
-  <!-- WRITEUP -->
   <article class="writeup">
     <div class="writeup-container">
 
@@ -41,51 +39,53 @@
       </header>
 
       <section class="writeup-section">
-        <h2>The Challenge</h2>
-        <blockquote class="writeup-quote">
-          A photograph was taken in Paris on December 3rd, 2023, around 18:00. Identify the nearest metro station to the location where the masked man was photographed. The scene is in a central and upscale district, near the intersection of a Rue and an Avenue.
-        </blockquote>
-        <p>Flag format: <code>OSINT{STATION_NAME}</code> — all uppercase, no accents, underscores between words.</p>
+        <h2>Challenge Overview</h2>
+        <figure class="writeup-image">
+          <img src="../images/ctf/masked-man-challenge.jpg" alt="The challenge photograph showing the masked man in Paris">
+          <figcaption>The original challenge photograph.</figcaption>
+        </figure>
+        <p>The goal of this challenge was to determine the nearest metro station to the location where a masked individual was photographed. The challenge provided a few clues, including that the photo was taken in Paris on December 3, 2023, around 18:00, in a central and upscale area near the intersection of a Rue and an Avenue.</p>
+        <p>The flag format required the name of the metro station in all uppercase letters with underscores between words.</p>
       </section>
 
       <section class="writeup-section">
         <h2>Initial Analysis</h2>
-        <p>I started by looking at the photograph and picking out anything that could help narrow down the location. The building in the background had classic Haussmann-style architecture — the kind you see all over central Paris. The rounded corner building, wide streets, and commercial storefronts told me this was one of the more upscale parts of the city.</p>
-        <p>The scene also looked like it was at a large intersection rather than a small side street. Since the challenge specifically mentioned an intersection involving a Rue and an Avenue, I focused on finding locations that matched that description.</p>
+        <p>I started by looking at the photograph and identifying any clues that could help narrow down the location. The building in the background had the classic Haussmann-style architecture commonly found throughout central Paris. The rounded corner building, wide streets, and commercial storefronts suggested that the photo was taken in one of the more upscale parts of the city.</p>
+        <p>I also noticed that the scene appeared to be at a large intersection rather than a small side street. Since the challenge specifically mentioned an intersection involving a Rue and an Avenue, I focused on finding locations that matched that description.</p>
       </section>
 
       <section class="writeup-section">
         <h2>Finding the Location</h2>
-        <p>The most useful clue came from examining the storefronts in the image. After zooming in and looking more closely, I was able to make out a word ending in "rie" and the name "Julien." That was enough to search for businesses in central Paris with that name.</p>
-        <p>Using Google Maps and OpenStreetMap, I located <strong>Maison Julien</strong> in central Paris. I then compared the surrounding streets and buildings to the photograph. The area matched on several key features — the shape of the intersection, the corner black-colored building, and the overall layout of the streets.</p>
-        <p>The location was near the intersection of:</p>
+        <p>One of the most useful clues came from examining the storefronts in the image. After zooming in and looking more closely, I was able to identify a word ending in "rie" and "Julien." This clue led me to search for businesses in central Paris that contained that name.</p>
+        <p>Using Google Maps and OpenStreetMap, I located <strong>Maison Julien</strong> in central Paris. I then compared the surrounding streets and buildings to the photograph. The area matched several key features, including the shape of the intersection, the corner black-colored building, and the overall layout of the streets.</p>
+        <p>The location was identified near the intersection of:</p>
         <ul class="writeup-list">
           <li><strong>Avenue Franklin Delano Roosevelt</strong></li>
           <li><strong>Rue du Commandant Rivière</strong></li>
         </ul>
-        <p>This matched the clues from the challenge — a Rue meeting an Avenue — and the surrounding buildings, storefronts, and street layout all lined up with what was visible in the photo.</p>
+        <p>This intersection matched the clues provided in the challenge, including the meeting of a Rue and an Avenue. The surrounding buildings, storefronts, and street layout closely matched what was visible in the photograph.</p>
       </section>
 
       <section class="writeup-section">
         <h2>Verification</h2>
-        <p>To make sure I had the right spot, I compared satellite imagery and Street View with the photograph. The curved corner building and nearby street layout matched the scene closely. The surrounding businesses and overall appearance of the area also checked out against the clues from the challenge.</p>
-        <p>Once I was confident in the location, the last step was finding the nearest metro station.</p>
+        <p>To verify the location, I compared satellite imagery and street views with the photograph. The curved corner building and nearby street layout matched the scene very closely. The surrounding businesses and overall appearance of the area also matched the clues provided in the challenge.</p>
+        <p>After confirming the location, the final step was identifying the nearest metro station.</p>
       </section>
 
       <section class="writeup-section">
-        <h2>The Flag</h2>
-        <p>Looking at the map of the area, the closest metro station was <strong>Saint-Philippe-du-Roule</strong> — only a short distance from the identified intersection.</p>
-        <p>Converted to the required format:</p>
+        <h2>Identifying the Metro Station</h2>
+        <p>Looking at the map of the area, I found that the closest metro station was <strong>Saint-Philippe-du-Roule</strong>. The station is located only a short distance from the identified intersection and matched the challenge requirements.</p>
+        <p>The station name was then converted into the required flag format by making all letters uppercase and replacing spaces with underscores.</p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Flag</h2>
         <pre class="writeup-code"><code>OSINT{SAINT_PHILIPPE_DU_ROULE}</code></pre>
       </section>
 
       <section class="writeup-section">
-        <h2>Takeaways</h2>
-        <ul class="writeup-list">
-          <li>Storefront text is huge for Paris geolocation — even a partial name like "Julien" can be enough to pin down a business and work outward from there</li>
-          <li>Haussmann-style buildings are everywhere in central Paris, but the specific corner shapes and intersection layouts can still help narrow things down when combined with other clues</li>
-          <li>Leading with the Avenue (instead of the Rue) was the right call here — Paris has far fewer Avenues than Rues, so it cuts the search space fast</li>
-        </ul>
+        <h2>Conclusion</h2>
+        <p>This challenge required using GEOINT techniques to analyze the clues visible in the photograph and identify the location. By examining the architecture, street layout, and the visible "Julien" clue, I was able to narrow the search to the intersection of Avenue Franklin Delano Roosevelt and Rue du Commandant Rivière in central Paris. After comparing the location with map data and nearby landmarks, I determined that the closest metro station was Saint-Philippe-du-Roule.</p>
       </section>
 
       <section class="writeup-section">
@@ -105,7 +105,6 @@
     </div>
   </article>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-name">Colby Nieva</div>
     <div class="footer-icons">
