@@ -12,7 +12,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <a href="../index.html" class="nav-logo">Colby Nieva</a>
     <ul class="nav-links">
@@ -24,7 +23,6 @@
     </ul>
   </nav>
 
-  <!-- WRITEUP -->
   <article class="writeup">
     <div class="writeup-container">
 
@@ -32,82 +30,70 @@
 
       <header class="writeup-header">
         <div class="writeup-meta-top">
-          <span class="ctf-difficulty ctf-medium">Medium</span>
-          <span class="ctf-points">250 pts</span>
+          <span class="ctf-difficulty ctf-easy">Easy</span>
+          <span class="ctf-points">3 pts</span>
           <span class="writeup-cat">OSINT · Geolocation</span>
         </div>
         <h1 class="writeup-title">Find the Masked Man</h1>
         <p class="writeup-source">CTF · <a href="https://ctf.osint.industries/challenges" target="_blank">ctf.osint.industries</a></p>
-        <div class="writeup-date">Solved: [DATE HERE], 2026</div>
       </header>
 
       <section class="writeup-section">
-        <h2>Challenge Description</h2>
+        <h2>Challenge Overview</h2>
         <blockquote class="writeup-quote">
-          A photograph was taken in Paris on December 3rd, 2023, around 18:00. The mission was to identify the nearest metro station to the location where the masked man was photographed — using only contextual and visual clues. The scene was described as a central and upscale Parisian district, near the intersection of a <em>Rue</em> and an <em>Avenue</em>.
+          A photograph was taken in Paris on December 3rd, 2023, around 18:00. Identify the nearest metro station to the location where the masked man was photographed. The scene is in a central and upscale district, near the intersection of a Rue and an Avenue.
         </blockquote>
+        <p>The goal was to determine the nearest metro station to the location where a masked individual was photographed. The challenge provided a few clues, including that the photo was taken in Paris on December 3, 2023, around 18:00, in a central and upscale area near the intersection of a Rue and an Avenue.</p>
         <p>Flag format: <code>OSINT{STATION_NAME}</code> — all uppercase, no accents, underscores between words.</p>
       </section>
 
       <section class="writeup-section">
-        <h2>Initial Recon</h2>
-        <p>The challenge gave me four key constraints to work with:</p>
+        <h2>Initial Analysis</h2>
+        <p>I started by looking at the photograph and identifying any clues that could help narrow down the location. The building in the background had the classic Haussmann-style architecture commonly found throughout central Paris. The rounded corner building, wide streets, and commercial storefronts suggested that the photo was taken in one of the more upscale parts of the city.</p>
+        <p>I also noticed that the scene appeared to be at a large intersection rather than a small side street. Since the challenge specifically mentioned an intersection involving a Rue and an Avenue, I focused on finding locations that matched that description.</p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Finding the Location</h2>
+        <p>One of the most useful clues came from examining the storefronts in the image. After zooming in and looking more closely, I was able to identify a word ending in "rie" and "Julien." This clue led me to search for businesses in central Paris that contained that name.</p>
+        <p>Using Google Maps and OpenStreetMap, I located <strong>Maison Julien</strong> in central Paris. I then compared the surrounding streets and buildings to the photograph. The area matched several key features, including the shape of the intersection, the corner black-colored building, and the overall layout of the streets.</p>
+        <p>The location was identified near the intersection of:</p>
         <ul class="writeup-list">
-          <li><strong>Date:</strong> December 3rd, 2023 — useful for matching seasonal lighting and any holiday decorations visible in the photo</li>
-          <li><strong>Time:</strong> ~18:00 — early evening in Paris in December means it would already be fully dark, with streetlights and shop lights on</li>
-          <li><strong>Area:</strong> central, upscale district of Paris — this narrows things to arrondissements like the 1st, 8th, 16th</li>
-          <li><strong>Layout:</strong> intersection of a Rue and an Avenue — Avenues in Paris are typically wide, tree-lined, and often radiate from major landmarks</li>
+          <li><strong>Avenue Franklin Delano Roosevelt</strong></li>
+          <li><strong>Rue du Commandant Rivière</strong></li>
         </ul>
-        <p>The mention of an <em>Avenue</em> was the biggest clue. Paris has a limited set of grand avenues in upscale districts — Avenue des Champs-Élysées, Avenue Montaigne, Avenue George V, Avenue Marceau, and a handful of others around the 8th and 16th arrondissements.</p>
+        <p>This intersection matched the clues provided in the challenge, including the meeting of a Rue and an Avenue. The surrounding buildings, storefronts, and street layout closely matched what was visible in the photograph.</p>
       </section>
 
       <section class="writeup-section">
-        <h2>Approach</h2>
-        <p>My methodology broke down into four steps:</p>
-        <ul class="writeup-list">
-          <li><strong>Step 1 — Identify visual landmarks in the photo:</strong> [describe what was visible — shop signage, architectural style, holiday lights, street furniture, etc.]</li>
-          <li><strong>Step 2 — Cross-reference with Paris arrondissements:</strong> [explain how the visual clues narrowed it down to a specific district]</li>
-          <li><strong>Step 3 — Google Maps Street View pivoting:</strong> walked virtually along candidate avenues looking for the exact intersection</li>
-          <li><strong>Step 4 — Confirm with metro proximity:</strong> once the intersection was found, identified the closest station using the Paris Metro map overlay</li>
-        </ul>
-        <p>The Street View pivoting looked something like this — moving along candidate avenues in the 8th arrondissement:</p>
-        <pre class="writeup-code"><code># Mental search pattern:
-1. Start at Place de la Concorde
-2. Walk down Avenue des Champs-Elysees
-3. Match storefronts, lamp post styles, building facades
-4. Cross-check with photo's visible signage
-5. Lock onto the Rue x Avenue intersection</code></pre>
+        <h2>Verification</h2>
+        <p>To verify the location, I compared satellite imagery and street views with the photograph. The curved corner building and nearby street layout matched the scene very closely. The surrounding businesses and overall appearance of the area also matched the clues provided in the challenge.</p>
+        <p>After confirming the location, the final step was identifying the nearest metro station.</p>
       </section>
 
       <section class="writeup-section">
-        <h2>The Pivot</h2>
-        <p>[Describe the specific clue that broke the challenge open — what did you spot that nobody else might have? Was it a unique storefront? A specific style of streetlight? A reflection in a window? This is the part that makes the writeup memorable.]</p>
-        <p>Once that detail clicked, I could pinpoint the intersection within Street View and confirm it visually against the original photo.</p>
+        <h2>Identifying the Metro Station</h2>
+        <p>Looking at the map of the area, I found that the closest metro station was <strong>Saint-Philippe-du-Roule</strong>. The station is located only a short distance from the identified intersection.</p>
+        <p>The station name was then converted into the required flag format by making all letters uppercase and replacing spaces with underscores.</p>
       </section>
 
       <section class="writeup-section">
-        <h2>The Flag</h2>
-        <p>With the intersection located, I used Google Maps to identify the nearest metro station. Submitted the flag in the correct format:</p>
-        <pre class="writeup-code"><code>OSINT{STATION_NAME_HERE}</code></pre>
+        <h2>Flag</h2>
+        <pre class="writeup-code"><code>OSINT{SAINT_PHILIPPE_DU_ROULE}</code></pre>
       </section>
 
       <section class="writeup-section">
-        <h2>Lessons Learned</h2>
-        <ul class="writeup-list">
-          <li>For Paris geolocation specifically, the <strong>arrondissement-by-arrondissement architectural style</strong> is a fast filter — Haussmann-era buildings, awning colors, and signage all narrow the search significantly</li>
-          <li><strong>Time-of-year matters</strong> — December lighting and holiday decorations would be visible in the photo and need to be matched against street-level imagery taken in the same season</li>
-          <li>Avenues in Paris are <strong>far less common than Rues</strong>, so leading with "find the avenue first" is a much faster strategy than searching every street</li>
-          <li>Google Street View "time travel" (back-dating imagery) helps when current Street View doesn't match — Paris updates frequently, so a 2023 photo may need 2022–2023 imagery to align</li>
-        </ul>
+        <h2>Conclusion</h2>
+        <p>This challenge required using GEOINT techniques to analyze the clues visible in the photograph and identify the location. By examining the architecture, street layout, and the visible "Julien" clue, I was able to narrow the search to the intersection of Avenue Franklin Delano Roosevelt and Rue du Commandant Rivière in central Paris. After comparing the location with map data and nearby landmarks, I determined that the closest metro station was Saint-Philippe-du-Roule.</p>
       </section>
 
       <section class="writeup-section">
-        <h2>Tools Used</h2>
+        <h2>Tools</h2>
         <div class="writeup-tools">
           <span class="ctf-tag">Google Maps</span>
           <span class="ctf-tag">Google Street View</span>
+          <span class="ctf-tag">OpenStreetMap</span>
           <span class="ctf-tag">Paris Metro Map</span>
-          <span class="ctf-tag">Visual GEOINT</span>
         </div>
       </section>
 
@@ -118,7 +104,6 @@
     </div>
   </article>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-name">Colby Nieva</div>
     <div class="footer-icons">
