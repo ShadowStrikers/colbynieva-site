@@ -1,1 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Find the Masked Man — CTF Writeup · Colby Nieva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/writeup.css">
+</head>
+<body>
 
+  <!-- NAV -->
+  <nav>
+    <a href="../index.html" class="nav-logo">Colby Nieva</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="index.html">CTF</a></li>
+      <li><a href="../index.html#resume">Resume</a></li>
+      <li><a href="mailto:cnieva101@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- WRITEUP -->
+  <article class="writeup">
+    <div class="writeup-container">
+
+      <a href="index.html" class="writeup-back">← All writeups</a>
+
+      <header class="writeup-header">
+        <div class="writeup-meta-top">
+          <span class="ctf-difficulty ctf-medium">Medium</span>
+          <span class="ctf-points">250 pts</span>
+          <span class="writeup-cat">OSINT · Geolocation</span>
+        </div>
+        <h1 class="writeup-title">Find the Masked Man</h1>
+        <p class="writeup-source">CTF · <a href="https://ctf.osint.industries/challenges" target="_blank">ctf.osint.industries</a></p>
+        <div class="writeup-date">Solved: [DATE HERE], 2026</div>
+      </header>
+
+      <section class="writeup-section">
+        <h2>Challenge Description</h2>
+        <blockquote class="writeup-quote">
+          A photograph was taken in Paris on December 3rd, 2023, around 18:00. The mission was to identify the nearest metro station to the location where the masked man was photographed — using only contextual and visual clues. The scene was described as a central and upscale Parisian district, near the intersection of a <em>Rue</em> and an <em>Avenue</em>.
+        </blockquote>
+        <p>Flag format: <code>OSINT{STATION_NAME}</code> — all uppercase, no accents, underscores between words.</p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Initial Recon</h2>
+        <p>The challenge gave me four key constraints to work with:</p>
+        <ul class="writeup-list">
+          <li><strong>Date:</strong> December 3rd, 2023 — useful for matching seasonal lighting and any holiday decorations visible in the photo</li>
+          <li><strong>Time:</strong> ~18:00 — early evening in Paris in December means it would already be fully dark, with streetlights and shop lights on</li>
+          <li><strong>Area:</strong> central, upscale district of Paris — this narrows things to arrondissements like the 1st, 8th, 16th</li>
+          <li><strong>Layout:</strong> intersection of a Rue and an Avenue — Avenues in Paris are typically wide, tree-lined, and often radiate from major landmarks</li>
+        </ul>
+        <p>The mention of an <em>Avenue</em> was the biggest clue. Paris has a limited set of grand avenues in upscale districts — Avenue des Champs-Élysées, Avenue Montaigne, Avenue George V, Avenue Marceau, and a handful of others around the 8th and 16th arrondissements.</p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Approach</h2>
+        <p>My methodology broke down into four steps:</p>
+        <ul class="writeup-list">
+          <li><strong>Step 1 — Identify visual landmarks in the photo:</strong> [describe what was visible — shop signage, architectural style, holiday lights, street furniture, etc.]</li>
+          <li><strong>Step 2 — Cross-reference with Paris arrondissements:</strong> [explain how the visual clues narrowed it down to a specific district]</li>
+          <li><strong>Step 3 — Google Maps Street View pivoting:</strong> walked virtually along candidate avenues looking for the exact intersection</li>
+          <li><strong>Step 4 — Confirm with metro proximity:</strong> once the intersection was found, identified the closest station using the Paris Metro map overlay</li>
+        </ul>
+        <p>The Street View pivoting looked something like this — moving along candidate avenues in the 8th arrondissement:</p>
+        <pre class="writeup-code"><code># Mental search pattern:
+1. Start at Place de la Concorde
+2. Walk down Avenue des Champs-Elysees
+3. Match storefronts, lamp post styles, building facades
+4. Cross-check with photo's visible signage
+5. Lock onto the Rue x Avenue intersection</code></pre>
+      </section>
+
+      <section class="writeup-section">
+        <h2>The Pivot</h2>
+        <p>[Describe the specific clue that broke the challenge open — what did you spot that nobody else might have? Was it a unique storefront? A specific style of streetlight? A reflection in a window? This is the part that makes the writeup memorable.]</p>
+        <p>Once that detail clicked, I could pinpoint the intersection within Street View and confirm it visually against the original photo.</p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>The Flag</h2>
+        <p>With the intersection located, I used Google Maps to identify the nearest metro station. Submitted the flag in the correct format:</p>
+        <pre class="writeup-code"><code>OSINT{STATION_NAME_HERE}</code></pre>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Lessons Learned</h2>
+        <ul class="writeup-list">
+          <li>For Paris geolocation specifically, the <strong>arrondissement-by-arrondissement architectural style</strong> is a fast filter — Haussmann-era buildings, awning colors, and signage all narrow the search significantly</li>
+          <li><strong>Time-of-year matters</strong> — December lighting and holiday decorations would be visible in the photo and need to be matched against street-level imagery taken in the same season</li>
+          <li>Avenues in Paris are <strong>far less common than Rues</strong>, so leading with "find the avenue first" is a much faster strategy than searching every street</li>
+          <li>Google Street View "time travel" (back-dating imagery) helps when current Street View doesn't match — Paris updates frequently, so a 2023 photo may need 2022–2023 imagery to align</li>
+        </ul>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Tools Used</h2>
+        <div class="writeup-tools">
+          <span class="ctf-tag">Google Maps</span>
+          <span class="ctf-tag">Google Street View</span>
+          <span class="ctf-tag">Paris Metro Map</span>
+          <span class="ctf-tag">Visual GEOINT</span>
+        </div>
+      </section>
+
+      <div class="writeup-footer-nav">
+        <a href="index.html" class="writeup-back">← Back to all writeups</a>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">Colby Nieva</div>
+    <div class="footer-icons">
+      <a href="https://www.linkedin.com/in/colby-nieva-3917b820a/" target="_blank" class="social-icon" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/ShadowStrikers" target="_blank" class="social-icon" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a href="mailto:cnieva101@gmail.com" class="social-icon" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-.503.205-.955.537-1.285L12 13.09 23.463 4.17c.332.33.537.782.537 1.287z"/></svg>
+      </a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Colby Nieva. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
