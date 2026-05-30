@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CTF Writeups · Colby Nieva</title>
+  <title>Lost in Transit — CTF Writeup · Colby Nieva</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -12,7 +12,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <a href="../index.html" class="nav-logo">Colby Nieva</a>
     <ul class="nav-links">
@@ -24,82 +23,64 @@
     </ul>
   </nav>
 
-  <!-- WRITEUPS LIST -->
   <article class="writeup">
     <div class="writeup-container">
 
-      <a href="../index.html" class="writeup-back">← Home</a>
+      <a href="index.html" class="writeup-back">← All writeups</a>
 
       <header class="writeup-header">
-        <p class="section-label" style="color: var(--gold);">CTF Challenges</p>
-        <h1 class="writeup-title">All Writeups</h1>
-        <p class="writeup-source">My approach, methodology, and takeaways from <a href="https://ctf.osint.industries/challenges" target="_blank">ctf.osint.industries</a> challenges.</p>
+        <div class="writeup-meta-top">
+          <span class="ctf-difficulty ctf-medium">Medium</span>
+          <span class="ctf-points">10 pts</span>
+          <span class="writeup-cat">OSINT · Geolocation</span>
+        </div>
+        <h1 class="writeup-title">Lost in Transit</h1>
+        <p class="writeup-source">CTF · <a href="https://ctf.osint.industries/challenges" target="_blank">ctf.osint.industries</a></p>
       </header>
 
-      <div class="ctf-grid" style="margin-top: 40px;">
+      <section class="writeup-section">
+        <h2>Challenge Overview</h2>
+        <figure class="writeup-image">
+          <img src="../images/ctf/lost-in-transit-challenge.jpg">
+        </figure>
+        <figure class="writeup-image">
+          <img src="../images/ctf/lost-in-transit.jpg" alt="The lost in transit photograph">
+        </figure>
+      <p>The goal of this challenge was to determine the location of a train station based on a photograph and the time of day. The flag format was the train station name followed by the time window.</p>
+      </section>
 
-        <a href="find-the-masked-man.html" class="ctf-card">
-          <div class="ctf-card-top">
-            <span class="ctf-difficulty ctf-easy">Easy</span>
-            <span class="ctf-points">3 pts</span>
-          </div>
-          <div class="ctf-title">Find the Masked Man</div>
-          <div class="ctf-category">OSINT · Geolocation</div>
-          <p class="ctf-snippet">Identified the nearest Paris metro station from a photo using storefront clues and Google Maps.</p>
-          <div class="ctf-meta">
-            <span class="ctf-tag">Google Maps</span>
-            <span class="ctf-tag">GEOINT</span>
-          </div>
-          <div class="ctf-read">Read writeup →</div>
-        </a>
+      <section class="writeup-section">
+        <h2>Initial Analysis</h2>
+        <p>First impressions of the photograph pointed to a location in France based on the little flag on the train station.  </p>
+      </section>
 
-        <a href="caught-in-the-act.html" class="ctf-card">
-          <div class="ctf-card-top">
-            <span class="ctf-difficulty ctf-easy">Easy</span>
-            <span class="ctf-points">5 pts</span>
-          </div>
-          <div class="ctf-title">Caught In The Act</div>
-          <div class="ctf-category">OSINT · Geolocation</div>
-          <p class="ctf-snippet">Determined the location of the university based on photograph and contextual clues.</p>
-          <div class="ctf-meta">
-            <span class="ctf-tag">OSINT</span>
-          </div>
-          <div class="ctf-read">Read writeup →</div>
-        </a>
-        <a href="lost-in-transit.html" class="ctf-card">
-          <div class="ctf-card-top">
-            <span class="ctf-difficulty ctf-medium">Medium</span>
-            <span class="ctf-points">10 pts</span>
-          </div>
-          <div class="ctf-title">Lost In transit</div>
-          <div class="ctf-category">OSINT · Geolocation</div>
-          <p class="ctf-snippet">Find the train station from a photo and the time of day.</p>
-          <div class="ctf-meta">
-            <span class="ctf-tag">OSINT</span>
-          </div>
-          <div class="ctf-read">Read writeup →</div>
-        </a>
+      <section class="writeup-section">
+        <h2>Finding the Location</h2>
+        <p>Reverse image search was the first step in identifying the location since there were not many other stand out clues. After translating a few websites I found a picture that looked very similar and noted it was named Saint-Charles in Marsillie.</p>
+        <figure class="writeup-image">
+          <img src="../images/ctf/st-charles.jpg">
+        </figure>
+        <figure class="writeup-image">
+          <img src="../images/ctf/lost-in-transit-sv.jpg">
+        </figure>
+        <p>Now that the location was identified, I had to figure out the exact time of day the photo was taken. Since there is no date information, I was unable to use a website to find when this train was at St-Charles station. So instead I had to use trial and error. Since the sky is clear and sunny it had to be within 8am and 6pm.After a few tries I was able to succesfully solve the challenge.</p>
+      </section>
 
-        <a href="uk-suspect.html" class="ctf-card">
-          <div class="ctf-card-top">
-            <span class="ctf-difficulty ctf-hard">Hard</span>
-            <span class="ctf-points">10 pts</span>
-          </div>
-          <div class="ctf-title">UK Suspect</div>
-          <div class="ctf-category">OSINT · Geolocation</div>
-          <p class="ctf-snippet">Identified the location of the two suspects based on a series of photographs and contextual clues.</p>
-          <div class="ctf-meta">
-            <span class="ctf-tag">OSINT</span>
-          </div>
-          <div class="ctf-read">Read writeup →</div>
-        </a>
+      <section class="writeup-section">
+        <h2>Flag</h2>
+        <pre class="writeup-code"><code>OSINT{saint_charles_10am-12pm}</code></pre>
+      </section>
+      <section class="writeup-section">
+        <h2>Conclusion</h2>
+      <p>This challenge was straightforward once the location was identified. The key was using reverse image search and trial and error to determine the time of day. This lead to a successful solution.</p>
+      </section>
 
+      <div class="writeup-footer-nav">
+        <a href="index.html" class="writeup-back">← Back to all writeups</a>
       </div>
-
     </div>
   </article>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-name">Colby Nieva</div>
     <div class="footer-icons">
