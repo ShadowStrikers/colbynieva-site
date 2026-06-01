@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Colby Nieva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- TERMINAL BOOT INTRO -->
+  <div id="boot-overlay">
+    <div class="boot-window">
+      <div class="boot-titlebar">
+        <div class="boot-tb-btns">
+          <span class="boot-tb-btn"></span>
+          <span class="boot-tb-btn"></span>
+          <span class="boot-tb-btn"></span>
+        </div>
+        <div class="boot-tb-title">colby@portfolio: ~</div>
+        <div class="boot-tb-icons"><span>—</span><span>▢</span><span>✕</span></div>
+      </div>
+      <div class="boot-body">
+        <div class="boot-line" id="boot-line"></div>
+      </div>
+    </div>
+    <button class="boot-skip" id="boot-skip">Skip intro →</button>
+  </div>
+
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">Colby Nieva</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#ctf">CTF</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="mailto:cnieva101@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="nav-progress" id="nav-progress"></div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-left">
+      <canvas id="particle-canvas"></canvas>
+      <span class="hero-tag"><span id="typing-text">Cybersecurity Graduate</span><span class="typing-cursor"></span></span>
+      <h1 class="hero-name">Colby<br><em>Nieva</em></h1>
+      <p class="hero-desc">
+        Cybersecurity graduate and security tool developer with a passion for building practical open-source solutions in OSINT, breach analysis, and password security. Experienced in leading teams, collaborating on technical projects, and turning complex security challenges into usable tools. Recognized on the Dean's List for strong academic performance and committed to continuous learning, research, and contributing to the cybersecurity community.
+      </p>
+      <div class="hero-cta">
+        <a href="#resume" class="btn-primary">View Resume</a>
+        <a href="#about" class="btn-outline">About Me</a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://www.linkedin.com/in/colby-nieva-3917b820a/" target="_blank" class="hero-social-icon" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://github.com/ShadowStrikers" target="_blank" class="hero-social-icon" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+        <a href="mailto:cnieva101@gmail.com" class="hero-social-icon" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-.503.205-.955.537-1.285L12 13.09 23.463 4.17c.332.33.537.782.537 1.287z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+            <div class="hero-photo-wrap">
+        <img src="images/colby.jpg" alt="Colby Nieva" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">5x</span>
+          <span class="stat-label">Dean's List</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">2026</span>
+          <span class="stat-label">Graduated</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label fade-up">Who I Am</p>
+      <h2 class="section-title fade-up">A little about me</h2>
+      <div class="about-grid">
+        <div class="about-text fade-up">
+          <p>
+           I’m a cybersecurity graduate from Liberty University focused on developing practical, privacy-conscious security tools. I’ve built and deployed three open-source projects in OSINT reconnaissance, breach detection, and password analysis, applying cybersecurity principles to real-world challenges.
+          </p>
+          <p>
+            Alongside my studies, I spent three years as a Restaurant Team Leader at Chick-fil-A, managing daily supply orders over $7,000, leading 15+ employee training sessions, and overseeing technology integration for staff. That experience built my ability to operate under pressure, manage complex systems, and lead teams effectively.
+          </p>
+          <p>
+            I'm a consistent Dean's List honoree and Chick-fil-A Remarkable Futures Scholar. I'm actively seeking a cybersecurity role where I can contribute to a security-focused team and keep building tools that matter.
+          </p>
+          <div class="about-skills">
+            <p class="skills-label">Technical Skills</p>
+            <div class="skill-tags">
+              <span class="skill-tag">OSINT</span>
+              <span class="skill-tag">Breach Intelligence</span>
+              <span class="skill-tag">Password Security</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">C++</span>
+              <span class="skill-tag">C#</span>
+              <span class="skill-tag">Linux</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-sidebar fade-up">
+          <div class="info-card">
+            <h4>Currently</h4>
+            <div class="info-row">
+              <span class="info-key">Seeking</span>
+              <span class="info-val">Cybersecurity Roles</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Building</span>
+              <span class="info-val">Security Tools</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Focus</span>
+              <span class="info-val">OSINT &amp; AppSec</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Status</span>
+              <span class="info-val">Open to Work</span>
+            </div>
+          </div>
+          <div class="info-card">
+            <h4>Achievements</h4>
+            <div class="info-row">
+              <span class="info-key">Scholarship</span>
+              <span class="info-val">Remarkable Futures 2023</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Dean's List</span>
+              <span class="info-val">5 Semesters</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label fade-up">What I've Built</p>
+      <h2 class="section-title fade-up">Live security projects</h2>
+      <div class="divider fade-up"></div>
+      <div class="projects-grid">
+
+        <div class="project-card fade-up">
+          <div class="project-tag"><span class="project-live-dot"></span>Live</div>
+          <div class="project-title">UserTrace</div>
+          <div class="project-subtitle">OSINT Username Recon Tool</div>
+          <p class="project-desc">Scans 25+ platforms in real time to map a target's digital footprint, including GitHub, Reddit, HackTheBox, TryHackMe, Instagram, Twitter, LinkedIn,and Steam, with live URL verification and exposure scoring.</p>
+          <div class="project-tech">
+            <span class="project-tech-tag">JavaScript</span>
+            <span class="project-tech-tag">GitHub Pages</span>
+            <span class="project-tech-tag">CORS Proxy</span>
+            <span class="project-tech-tag">OSINT</span>
+          </div>
+          <div class="project-links">
+            <a href="https://shadowstrikers.github.io/usertrace" target="_blank" class="project-link project-link-demo">Demo ↗</a>
+            <a href="https://github.com/ShadowStrikers/usertrace" target="_blank" class="project-link project-link-code">Code ↗</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-up">
+          <div class="project-tag"><span class="project-live-dot"></span>Live</div>
+          <div class="project-title">BreachWatch</div>
+          <div class="project-subtitle">Breach Email Checker</div>
+          <p class="project-desc">Privacy-preserving breach detection using k-anonymity design, raw credentials are never transmitted. Integrates Google Gemini API for AI-generated risk assessments and plain-English remediation guidance.</p>
+          <div class="project-tech">
+            <span class="project-tech-tag">JavaScript</span>
+            <span class="project-tech-tag">Gemini API</span>
+            <span class="project-tech-tag">k-Anonymity</span>
+            <span class="project-tech-tag">Breach Intel</span>
+          </div>
+          <div class="project-links">
+            <a href="https://shadowstrikers.github.io/breach-checker" target="_blank" class="project-link project-link-demo">Demo ↗</a>
+            <a href="https://github.com/ShadowStrikers/breach-checker" target="_blank" class="project-link project-link-code">Code ↗</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-up">
+          <div class="project-tag"><span class="project-live-dot"></span>Live</div>
+          <div class="project-title">Password Analyzer</div>
+          <div class="project-subtitle">Strength &amp; Entropy Analysis</div>
+          <p class="project-desc">Combines rule-based heuristics, entropy-based crack time estimation, and AI-generated remediation guidance. Raw passwords never leave the browser, only anonymized structural findings are sent to the AI.</p>
+          <div class="project-tech">
+            <span class="project-tech-tag">JavaScript</span>
+            <span class="project-tech-tag">Gemini API</span>
+            <span class="project-tech-tag">Entropy Analysis</span>
+            <span class="project-tech-tag">Privacy-First</span>
+          </div>
+          <div class="project-links">
+            <a href="https://shadowstrikers.github.io/password-analyzer" target="_blank" class="project-link project-link-demo">Demo ↗</a>
+            <a href="https://github.com/ShadowStrikers/password-analyzer" target="_blank" class="project-link project-link-code">Code ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTF WRITEUPS -->
+  <section id="ctf">
+    <div class="container">
+      <p class="section-label fade-up">CTF Challenges</p>
+      <h2 class="section-title fade-up">OSINT writeups</h2>
+      <div class="divider fade-up"></div>
+      <p class="ctf-intro fade-up">Documenting my approach to OSINT challenges from <a href="https://ctf.osint.industries/challenges" target="_blank" rel="noopener">ctf.osint.industries</a>, with each writeup detailing my methodology, tools used, and key takeaways.</p>
+
+      <div class="ctf-grid">
+
+        <a href="writeups/find-the-masked-man.html" class="ctf-card fade-up">
+          <div class="ctf-card-top">
+            <span class="ctf-difficulty ctf-easy">Easy</span>
+            <span class="ctf-points">3 pts</span>
+          </div>
+          <div class="ctf-title">Find the Masked Man</div>
+          <div class="ctf-category">OSINT · Geolocation</div>
+          <p class="ctf-snippet">Identified the nearest Paris metro station from a photo using storefront clues and Google Maps.</p>
+          <div class="ctf-meta">
+            <span class="ctf-tag">OSINT</span>
+          </div>
+          <div class="ctf-read">Read writeup →</div>
+        </a>
+
+        <a href="writeups/caught-in-the-act.html" class="ctf-card fade-up">
+          <div class="ctf-card-top">
+            <span class="ctf-difficulty ctf-easy">Easy</span>
+            <span class="ctf-points">5 pts</span>
+          </div>
+          <div class="ctf-title">Caught In The Act</div>
+          <div class="ctf-category">OSINT · Geolocation</div>
+          <p class="ctf-snippet">Determined the location of the university based on photograph and contextual clues.</p>
+          <div class="ctf-meta">
+            <span class="ctf-tag">OSINT</span>
+          </div>
+          <div class="ctf-read">Read writeup →</div>
+        </a>
+        <a href="writeups/lost-in-transit.html" class="ctf-card fade-up">
+          <div class="ctf-card-top">
+            <span class="ctf-difficulty ctf-medium">Medium</span>
+            <span class="ctf-points">10 pts</span>
+          </div>
+          <div class="ctf-title">Lost In transit</div>
+          <div class="ctf-category">OSINT · Geolocation</div>
+          <p class="ctf-snippet">Find the train station from a photo and the time of day.</p>
+          <div class="ctf-meta">
+            <span class="ctf-tag">OSINT</span>
+          </div>
+          <div class="ctf-read">Read writeup →</div>
+        </a>
+
+        <a href="writeups/uk-suspect.html" class="ctf-card fade-up">
+          <div class="ctf-card-top">
+            <span class="ctf-difficulty ctf-hard">Hard</span>
+            <span class="ctf-points">10 pts</span>
+          </div>
+          <div class="ctf-title">UK Suspect</div>
+          <div class="ctf-category">OSINT · Geolocation</div>
+          <p class="ctf-snippet">Identified the location of the two suspects based on a series of photographs and contextual clues.</p>
+          <div class="ctf-meta">
+            <span class="ctf-tag">OSINT</span>
+          </div>
+          <div class="ctf-read">Read writeup →</div>
+        </a>
+
+       <a href="writeups/depix.html" class="ctf-card fade-up">
+          <div class="ctf-card-top">
+            <span class="ctf-difficulty ctf-easy">Easy</span>
+            <span class="ctf-points">3 pts</span>
+          </div>
+          <div class="ctf-title">DEPIX</div>
+          <div class="ctf-category">OSINT</div>
+          <p class="ctf-snippet">Identify the passengers details based on their online flight ticket.</p>
+          <div class="ctf-meta">
+            <span class="ctf-tag">OSINT</span>
+          </div>
+          <div class="ctf-read">Read writeup →</div>
+        </a> 
+
+                <a href="writeups/a-taste-of-influence-part-1.html" class="ctf-card">
+          <div class="ctf-card-top">
+            <span class="ctf-difficulty ctf-medium">Medium</span>
+            <span class="ctf-points">15 pts</span>
+          </div>
+          <div class="ctf-title">A Taste of Influence — Part 1</div>
+          <div class="ctf-category">OSINT · Person Investigation</div>
+          <p class="ctf-snippet">Identified a gastronomic festival attended by a culinary professional using only his public Gronda profile as a starting point.</p>
+          <div class="ctf-meta">
+            <span class="ctf-tag">OSINT</span>
+            <span class="ctf-tag">Person Investigation</span>
+          </div>
+          <div class="ctf-read">Read writeup →</div>
+        </a>
+
+        <a href="writeups/a-taste-of-influence-part-2-3.html" class="ctf-card fade-up">
+          <div class="ctf-card-top">
+            <span class="ctf-difficulty ctf-medium">Medium</span>
+            <span class="ctf-points">10 pts each</span>
+          </div>
+          <div class="ctf-title">A Taste of Influence — Parts 2, 3 &amp; 4</div>
+          <div class="ctf-category">OSINT · Person Investigation</div>
+          <p class="ctf-snippet">Extracted a personal email address and phone number from Konstantin Gladkikh's publicly accessible Instagram contact panel.</p>
+          <div class="ctf-meta">
+            <span class="ctf-tag">OSINT</span>
+            <span class="ctf-tag">Person Investigation</span>
+          </div>
+          <div class="ctf-read">Read writeup →</div>
+        </a>
+      </div>
+      <div class="ctf-coming-soon fade-up">
+        <div class="ctf-cs-inner">
+          <span class="ctf-cs-label"><span class="ctf-cs-blink-dot"></span> In Progress</span>
+          <div class="ctf-cs-terminal">
+            <span class="ctf-cs-prompt">colby@ctf:~$</span>
+            <span class="ctf-cs-cmd"> git push writeups/</span>
+            <span class="ctf-cs-cursor"></span>
+          </div>
+          <p class="ctf-cs-sub">More OSINT challenge writeups are actively being documented — check back soon.</p>
+        </div>
+      </div>
+
+      <div class="ctf-all-row fade-up">
+        <a href="writeups/index.html" class="ctf-all-link">View all writeups →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUME -->
+  <section id="resume">
+    <div class="container">
+      <p class="section-label fade-up">My Background</p>
+      <h2 class="section-title fade-up">Experience &amp; Education</h2>
+      <div class="resume-layout">
+
+        <!-- Main: Experience -->
+        <div>
+          <div class="resume-section fade-up">
+            <p class="resume-section-title">Work Experience</p>
+
+            <div class="job">
+              <span class="job-date">2022 — 2025</span>
+              <div class="job-content">
+                <div class="job-title">Restaurant Team Leader</div>
+                <div class="job-company">Chick-fil-A · Covington, WA</div>
+                <p class="job-desc">Led daily operations and staff development at a high-volume location, managing supply orders, technology training, and team efficiency.</p>
+                <ul class="job-bullets">
+                  <li>Responsible for ordering daily supply totaling over $7,000, ensuring accurate forecasting and timely delivery to support daily operations</li>
+                  <li>Simultaneously oversaw two separate delivery orders — general inventory and produce — ensuring accurate orders and proper storage</li>
+                  <li>Conducted 15+ multi-day employee training sessions on operational efficiency, POS systems, and inventory management software while maintaining detailed records</li>
+                  <li>Implemented daily checklists to monitor and reduce waste, and quarterly updated stock requirements to meet changing demand</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="job">
+              <span class="job-date">2022 — 2026</span>
+              <div class="job-content">
+                <div class="job-title">Academic Projects — Cybersecurity</div>
+                <div class="job-company">Liberty University · Online</div>
+                <p class="job-desc">Completed hands-on projects applying industry frameworks to real-world scenarios.</p>
+                <ul class="job-bullets">
+                  <li>Researched and authored a comprehensive password protection policy for a fictional organization, following SANS Institute best practices</li>
+                  <li>Conducted in-depth research proposal analyzing the impact of AI on organizations using longitudinal studies to evaluate performance effects</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar: Education, Skills, Certs -->
+        <div class="resume-sidebar fade-up">
+          <div class="sidebar-block">
+            <p class="sidebar-block-title">Education</p>
+            <div class="edu-item">
+              <div class="edu-degree">B.S. Cybersecurity,<br>Computer Science</div>
+              <div class="edu-school">Liberty University Online</div>
+              <div class="edu-year">2022 – 2026</div>
+            </div>
+            <div class="edu-item">
+              <div class="edu-degree">Dual Enrollment /<br>High School Diploma</div>
+              <div class="edu-school">Liberty University Online</div>
+              <div class="edu-year">May 2021</div>
+            </div>
+          </div>
+
+          <div class="sidebar-block">
+            <p class="sidebar-block-title">Technical Proficiency</p>
+            <div class="competency">
+              <div class="competency-name">JavaScript <span>Advanced</span></div>
+              <div class="comp-bar"><div class="comp-fill" style="width:85%"></div></div>
+            </div>
+            <div class="competency">
+              <div class="competency-name">Python <span>Proficient</span></div>
+              <div class="comp-bar"><div class="comp-fill" style="width:78%"></div></div>
+            </div>
+            <div class="competency">
+              <div class="competency-name">Linux / Windows <span>Advanced</span></div>
+              <div class="comp-bar"><div class="comp-fill" style="width:82%"></div></div>
+            </div>
+            <div class="competency">
+              <div class="competency-name">C++ <span>Proficient</span></div>
+              <div class="comp-bar"><div class="comp-fill" style="width:72%"></div></div>
+            </div>
+            <div class="competency">
+              <div class="competency-name">C# <span>Proficient</span></div>
+              <div class="comp-bar"><div class="comp-fill" style="width:72%"></div></div>
+            </div>
+          </div>
+
+          <div class="sidebar-block">
+            <p class="sidebar-block-title">Honors &amp; Awards</p>
+            <div class="cert-item"><span class="cert-dot"></span>Dean's List — Fall 2022, Fall–Spring 2023, Fall 2024, Spring 2025, Spring 2026</div>
+            <div class="cert-item"><span class="cert-dot"></span>Remarkable Futures Scholarship — 2023</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">Colby Nieva</div>
+    <div class="footer-icons">
+      <a href="https://www.linkedin.com/in/colby-nieva-3917b820a/" target="_blank" class="social-icon" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/ShadowStrikers" target="_blank" class="social-icon" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a href="mailto:cnieva101@gmail.com" class="social-icon" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-.503.205-.955.537-1.285L12 13.09 23.463 4.17c.332.33.537.782.537 1.287z"/></svg>
+      </a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Colby Nieva. All rights reserved.</p>
+  </footer>
+
+  <button id="scroll-top" aria-label="Scroll to top">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
