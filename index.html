@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -223,6 +224,14 @@
       <div class="divider fade-up"></div>
       <p class="ctf-intro fade-up">Documenting my approach to OSINT challenges from <a href="https://ctf.osint.industries/challenges" target="_blank" rel="noopener">ctf.osint.industries</a>, with each writeup detailing my methodology, tools used, and key takeaways.</p>
 
+      <div class="ctf-stats fade-up">
+        <span class="ctf-stat-item"><span class="ctf-stat-num">10</span> Challenges Solved</span>
+        <span class="ctf-stat-sep">·</span>
+        <span class="ctf-stat-item"><span class="ctf-stat-num">86</span> pts</span>
+        <span class="ctf-stat-sep">·</span>
+        <span class="ctf-stat-item">Geolocation · Person Investigation</span>
+      </div>
+
       <div class="ctf-grid">
 
         <a href="writeups/find-the-masked-man.html" class="ctf-card fade-up">
@@ -233,33 +242,6 @@
           <div class="ctf-title">Find the Masked Man</div>
           <div class="ctf-category">OSINT · Geolocation</div>
           <p class="ctf-snippet">Identified the nearest Paris metro station from a photo using storefront clues and Google Maps.</p>
-          <div class="ctf-meta">
-            <span class="ctf-tag">OSINT</span>
-          </div>
-          <div class="ctf-read">Read writeup →</div>
-        </a>
-
-        <a href="writeups/caught-in-the-act.html" class="ctf-card fade-up">
-          <div class="ctf-card-top">
-            <span class="ctf-difficulty ctf-easy">Easy</span>
-            <span class="ctf-points">5 pts</span>
-          </div>
-          <div class="ctf-title">Caught In The Act</div>
-          <div class="ctf-category">OSINT · Geolocation</div>
-          <p class="ctf-snippet">Determined the location of the university based on photograph and contextual clues.</p>
-          <div class="ctf-meta">
-            <span class="ctf-tag">OSINT</span>
-          </div>
-          <div class="ctf-read">Read writeup →</div>
-        </a>
-        <a href="writeups/lost-in-transit.html" class="ctf-card fade-up">
-          <div class="ctf-card-top">
-            <span class="ctf-difficulty ctf-medium">Medium</span>
-            <span class="ctf-points">10 pts</span>
-          </div>
-          <div class="ctf-title">Lost In transit</div>
-          <div class="ctf-category">OSINT · Geolocation</div>
-          <p class="ctf-snippet">Find the train station from a photo and the time of day.</p>
           <div class="ctf-meta">
             <span class="ctf-tag">OSINT</span>
           </div>
@@ -280,50 +262,6 @@
           <div class="ctf-read">Read writeup →</div>
         </a>
 
-       <a href="writeups/depix.html" class="ctf-card fade-up">
-          <div class="ctf-card-top">
-            <span class="ctf-difficulty ctf-easy">Easy</span>
-            <span class="ctf-points">3 pts</span>
-          </div>
-          <div class="ctf-title">DEPIX</div>
-          <div class="ctf-category">OSINT</div>
-          <p class="ctf-snippet">Identify the passengers details based on their online flight ticket.</p>
-          <div class="ctf-meta">
-            <span class="ctf-tag">OSINT</span>
-          </div>
-          <div class="ctf-read">Read writeup →</div>
-        </a> 
-
-                <a href="writeups/a-taste-of-influence-part-1.html" class="ctf-card">
-          <div class="ctf-card-top">
-            <span class="ctf-difficulty ctf-medium">Medium</span>
-            <span class="ctf-points">15 pts</span>
-          </div>
-          <div class="ctf-title">A Taste of Influence — Part 1</div>
-          <div class="ctf-category">OSINT · Person Investigation</div>
-          <p class="ctf-snippet">Identified a gastronomic festival attended by a culinary professional using only his public Gronda profile as a starting point.</p>
-          <div class="ctf-meta">
-            <span class="ctf-tag">OSINT</span>
-            <span class="ctf-tag">Person Investigation</span>
-          </div>
-          <div class="ctf-read">Read writeup →</div>
-        </a>
-
-        <a href="writeups/a-taste-of-influence-part-2-3.html" class="ctf-card fade-up">
-          <div class="ctf-card-top">
-            <span class="ctf-difficulty ctf-medium">Medium</span>
-            <span class="ctf-points">10 pts each</span>
-          </div>
-          <div class="ctf-title">A Taste of Influence — Parts 2, 3 &amp; 4</div>
-          <div class="ctf-category">OSINT · Person Investigation</div>
-          <p class="ctf-snippet">Extracted a personal email address and phone number from Konstantin Gladkikh's publicly accessible Instagram contact panel.</p>
-          <div class="ctf-meta">
-            <span class="ctf-tag">OSINT</span>
-            <span class="ctf-tag">Person Investigation</span>
-          </div>
-          <div class="ctf-read">Read writeup →</div>
-        </a>        
-
         <a href="writeups/the-benarroch-file.html" class="ctf-card fade-up">
           <div class="ctf-card-top">
             <span class="ctf-difficulty ctf-easy">Easy</span>
@@ -339,18 +277,6 @@
           <div class="ctf-read">Read writeup →</div>
         </a>
 
-
-      </div>
-      <div class="ctf-coming-soon fade-up">
-        <div class="ctf-cs-inner">
-          <span class="ctf-cs-label"><span class="ctf-cs-blink-dot"></span> In Progress</span>
-          <div class="ctf-cs-terminal">
-            <span class="ctf-cs-prompt">colby@ctf:~$</span>
-            <span class="ctf-cs-cmd"> git push writeups/</span>
-            <span class="ctf-cs-cursor"></span>
-          </div>
-          <p class="ctf-cs-sub">More OSINT challenge writeups are actively being documented — check back soon.</p>
-        </div>
       </div>
 
       <div class="ctf-all-row fade-up">
