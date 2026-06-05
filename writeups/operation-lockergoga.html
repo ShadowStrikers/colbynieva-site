@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Operation LOCKERGOGA CTF Writeup · Colby Nieva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/writeup.css">
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">Colby Nieva</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="index.html">CTF</a></li>
+      <li><a href="../index.html#resume">Resume</a></li>
+      <li><a href="mailto:cnieva101@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <article class="writeup">
+    <div class="writeup-container">
+
+      <a href="index.html" class="writeup-back">← All writeups</a>
+
+      <header class="writeup-header">
+        <div class="writeup-meta-top">
+          <span class="ctf-difficulty ctf-hard">Hard</span>
+          <span class="ctf-points">30 pts</span>
+          <span class="writeup-cat">OSINT · Person Investigation</span>
+        </div>
+        <h1 class="writeup-title">Operation LOCKERGOGA</h1>
+        <p class="writeup-source">CTF · <a href="https://ctf.osint.industries/challenges" target="_blank">ctf.osint.industries</a></p>
+      </header>
+
+      <section class="writeup-section">
+        <h2>Challenge Overview</h2>
+        <p>This challenge is based on a real <strong>Europol Most Wanted</strong> listing. The subject, <strong>TYMOSHCHUK (ТИМОЩУК), Volodymyr Viktorych</strong>, born October 2, 1996, is wanted by France for computer-related crime, participation in a criminal organisation, and racketeering and extortion.</p>
+        <p>From 2018 to 2020, Tymoshchuk and accomplices participated in deploying the <strong>LOCKERGOGA ransomware</strong> on hundreds of victim companies, causing total global damages exceeding <strong>$18 billion</strong>.</p>
+        <p>The objective is to identify, using only legal open-source intelligence methods:</p>
+        <ul style="margin: 16px 0 16px 20px; color: #4a5a6a; font-weight: 300; line-height: 1.9;">
+          <li>The licence plate of the vehicle linked to the individual</li>
+          <li>Its brand and model</li>
+          <li>Year of manufacture</li>
+          <li>Last known mileage</li>
+        </ul>
+
+        <figure class="writeup-image">
+          <img src="../images/ctf/lockergoga-challenge.jpg" alt="Operation LOCKERGOGA challenge prompt">
+        </figure>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Initial Research</h2>
+        <p>Starting from the Europol listing, the subject's name <strong>Volodymyr Tymoshchuk</strong> was searched alongside cybercrime-related keywords. This surfaced an investigative article on <strong>decodecybercrime.com</strong> that had already aggregated publicly available social media data on the subject, including screenshots from his Instagram account.</p>
+        <p>The article contained a photograph taken from his Instagram that clearly showed a <strong>licence plate</strong> and states the VIN number is <strong>WP1ZZZ9YZKDA39521</strong>.</p>
+
+        <figure class="writeup-image">
+          <img src="../images/ctf/volo.jpg" alt="Instagram post showing vehicle with licence plate AB 6637 IE and VIN number">
+        </figure>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Identifying the Vehicle</h2>
+        <p>The licence plate visible in the image was <strong>AB 6637 IE</strong>. With the VIN number also known, a VIN lookup was performed using publicly available VIN decoder services. VIN numbers encode the manufacturer, model, production year, and other vehicle specifications directly into the string. No registration database access is required.</p>
+        <p>The VIN decode confirmed:</p>
+        <ul style="margin: 16px 0 16px 20px; color: #4a5a6a; font-weight: 300; line-height: 1.9;">
+          <li>Brand: <strong>PORSCHE</strong></li>
+          <li>Model: <strong>CAYENNE</strong></li>
+          <li>Year of manufacture: <strong>2019</strong></li>
+        </ul>
+
+        <figure class="writeup-image">
+          <img src="../images/ctf/vin.jpg" alt="VIN decoder results confirming Porsche Cayenne 2019">
+        </figure>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Finding the Mileage</h2>
+        <p>The last known mileage was found in an <strong>Instagram story</strong> posted by the subject. The story showed the interior of the vehicle with the dashboard slightly visible, but after zooming in  the odometer read <strong>36,921 km</strong>.</p>
+
+        <figure class="writeup-image">
+          <img src="../images/ctf/dashboard.jpg" alt="Instagram story showing dashboard odometer reading 36921 km">
+        </figure>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Flag</h2>
+        <pre class="writeup-code"><code>OSINT{AB 6637 IE, PORSCHE, CAYENNE, 2019, 36921KM}</code></pre>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Conclusion</h2>
+        <p>This challenge demonstrates how a threat actor's own social media posts can become an intelligence source. Despite being a fugitive on Europol's Most Wanted list, publicly shared images contained enough embedded data to fully reconstruct the vehicle's identity and history.</p>
+        <p>Key takeaways:</p>
+        <ul style="margin: 16px 0 0 20px; color: #4a5a6a; font-weight: 300; line-height: 1.9;">
+          <li>Third-party investigative articles often aggregate social media content that may have since been deleted from the original source.</li>
+          <li>VIN numbers are publicly decodable and reveal full vehicle specifications without requiring access to any registration authority.</li>
+          <li>A licence plate alone is not enough. Layering it with a VIN decode is what confirms make, model, and year with certainty.</li>
+        </ul>
+      </section>
+
+      <div class="writeup-footer-nav">
+        <a href="index.html" class="writeup-back">← Back to all writeups</a>
+      </div>
+
+    </div>
+  </article>
+
+  <footer>
+    <div class="footer-name">Colby Nieva</div>
+    <div class="footer-icons">
+      <a href="https://www.linkedin.com/in/colby-nieva-3917b820a/" target="_blank" class="social-icon" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/ShadowStrikers" target="_blank" class="social-icon" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a href="mailto:cnieva101@gmail.com" class="social-icon" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-.503.205-.955.537-1.285L12 13.09 23.463 4.17c.332.33.537.782.537 1.287z"/></svg>
+      </a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Colby Nieva. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
