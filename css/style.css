@@ -412,6 +412,8 @@
       gap: 24px;
     }
     .project-card {
+      display: flex;
+      flex-direction: column;
       border: 1px solid rgba(255,255,255,0.08);
       padding: 28px;
       position: relative;
@@ -433,6 +435,7 @@
 
     .project-tag {
       display: inline-flex; align-items: center; gap: 6px;
+      align-self: flex-start;
       font-size: 10px; font-weight: 500;
       letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--gold);
@@ -468,6 +471,7 @@
       color: rgba(255,255,255,0.6);
       line-height: 1.75;
       margin-bottom: 20px;
+      flex: 1;
     }
     .project-tech {
       display: flex; flex-wrap: wrap; gap: 6px;
@@ -480,7 +484,11 @@
       padding: 3px 10px;
       letter-spacing: 0.04em;
     }
-    .project-links { display: flex; gap: 12px; }
+    .project-links {
+      display: flex;
+      gap: 12px;
+      margin-top: auto;
+    }
     .project-link {
       font-size: 12px; font-weight: 500;
       letter-spacing: 0.08em; text-transform: uppercase;
