@@ -10,6 +10,95 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/writeup.css">
+  <style>
+    .wi-controls {
+      margin-bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .wi-search-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .wi-search-icon {
+      position: absolute;
+      left: 14px;
+      color: var(--muted);
+      pointer-events: none;
+    }
+    .wi-search {
+      width: 100%;
+      padding: 11px 16px 11px 40px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .wi-search:focus { border-color: var(--gold); }
+    .wi-search::placeholder { color: var(--muted); }
+
+    .wi-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+    .wi-filter-sep {
+      width: 1px;
+      height: 20px;
+      background: var(--border);
+      flex-shrink: 0;
+      margin: 0 6px;
+    }
+    .wi-filter-group {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .wi-filter-label {
+      display: none;
+    }
+    .wi-filter-btns { display: flex; gap: 4px; }
+    .wi-btn {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--slate);
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 5px 12px;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .wi-btn:hover { border-color: var(--navy); color: var(--navy); }
+    .wi-btn.wi-active { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .wi-btn.wi-active-easy  { background: #15803d; border-color: #15803d; color: #fff; }
+    .wi-btn.wi-active-medium { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+    .wi-btn.wi-active-hard  { background: #b91c1c; border-color: #b91c1c; color: #fff; }
+
+
+    .wi-count {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 400;
+      min-height: 18px;
+      margin-bottom: 4px;
+    }
+    .wi-none {
+      display: none;
+      padding: 48px 0;
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+      border: 1px dashed var(--border);
+      background: #fff;
+    }
+  </style>
 </head>
 <body>
 
@@ -37,9 +126,31 @@
         <p class="writeup-source">My approach, methodology, and takeaways from <a href="https://ctf.osint.industries/challenges" target="_blank">ctf.osint.industries</a> challenges.</p>
       </header>
 
-      <div class="ctf-grid" style="margin-top: 40px;">
+      <!-- CONTROLS -->
+      <div class="wi-controls">
+        <div class="wi-search-wrap">
+          <svg class="wi-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="wi-search" class="wi-search" placeholder="Search writeups by title, category, or technique...">
+        </div>
+        <div class="wi-filters">
+          <button class="wi-btn wi-active" data-diff="all">All</button>
+          <button class="wi-btn" data-diff="easy">Easy</button>
+          <button class="wi-btn" data-diff="medium">Medium</button>
+          <button class="wi-btn" data-diff="hard">Hard</button>
+          <div class="wi-filter-sep"></div>
+          <button class="wi-btn wi-active" data-cat="all">All Categories</button>
+          <button class="wi-btn" data-cat="geolocation">Geolocation</button>
+          <button class="wi-btn" data-cat="person">Person Investigation</button>
+          <button class="wi-btn" data-cat="other">Other</button>
+        </div>
+      </div>
 
-        <a href="find-the-masked-man.html" class="ctf-card">
+      <div class="wi-count" id="wi-count"></div>
+      <div class="wi-none" id="wi-none">No writeups match your filters.</div>
+
+      <div class="ctf-grid" style="margin-top: 12px;">
+
+        <a href="find-the-masked-man.html" class="ctf-card" data-difficulty="easy" data-points="3" data-category="geolocation">
           <div class="ctf-card-top">
             <span class="ctf-difficulty ctf-easy">Easy</span>
             <span class="ctf-points">3 pts</span>
@@ -54,7 +165,7 @@
           <div class="ctf-read">Read writeup →</div>
         </a>
 
-        <a href="caught-in-the-act.html" class="ctf-card">
+        <a href="caught-in-the-act.html" class="ctf-card" data-difficulty="easy" data-points="5" data-category="geolocation">
           <div class="ctf-card-top">
             <span class="ctf-difficulty ctf-easy">Easy</span>
             <span class="ctf-points">5 pts</span>
@@ -67,7 +178,8 @@
           </div>
           <div class="ctf-read">Read writeup →</div>
         </a>
-        <a href="lost-in-transit.html" class="ctf-card">
+
+        <a href="lost-in-transit.html" class="ctf-card" data-difficulty="medium" data-points="10" data-category="geolocation">
           <div class="ctf-card-top">
             <span class="ctf-difficulty ctf-medium">Medium</span>
             <span class="ctf-points">10 pts</span>
@@ -81,7 +193,7 @@
           <div class="ctf-read">Read writeup →</div>
         </a>
 
-        <a href="uk-suspect.html" class="ctf-card">
+        <a href="uk-suspect.html" class="ctf-card" data-difficulty="hard" data-points="10" data-category="geolocation">
           <div class="ctf-card-top">
             <span class="ctf-difficulty ctf-hard">Hard</span>
             <span class="ctf-points">10 pts</span>
@@ -95,7 +207,7 @@
           <div class="ctf-read">Read writeup →</div>
         </a>
 
-        <a href="depix.html" class="ctf-card">
+        <a href="depix.html" class="ctf-card" data-difficulty="easy" data-points="3" data-category="other">
           <div class="ctf-card-top">
             <span class="ctf-difficulty ctf-easy">Easy</span>
             <span class="ctf-points">3 pts</span>
@@ -107,9 +219,9 @@
             <span class="ctf-tag">OSINT</span>
           </div>
           <div class="ctf-read">Read writeup →</div>
-          </a> 
+        </a>
 
-        <a href="a-taste-of-influence-part-1.html" class="ctf-card">
+        <a href="a-taste-of-influence-part-1.html" class="ctf-card" data-difficulty="medium" data-points="15" data-category="person">
           <div class="ctf-card-top">
             <span class="ctf-difficulty ctf-medium">Medium</span>
             <span class="ctf-points">15 pts</span>
@@ -124,8 +236,7 @@
           <div class="ctf-read">Read writeup →</div>
         </a>
 
-
-        <a href="a-taste-of-influence-part-2-3.html" class="ctf-card">
+        <a href="a-taste-of-influence-part-2-3.html" class="ctf-card" data-difficulty="medium" data-points="10" data-category="person">
           <div class="ctf-card-top">
             <span class="ctf-difficulty ctf-medium">Medium</span>
             <span class="ctf-points">10 pts each</span>
@@ -140,7 +251,7 @@
           <div class="ctf-read">Read writeup →</div>
         </a>
 
-        <a href="operation-hilton.html" class="ctf-card">
+        <a href="operation-hilton.html" class="ctf-card" data-difficulty="easy" data-points="25" data-category="person">
           <div class="ctf-card-top">
             <span class="ctf-difficulty ctf-easy">Easy</span>
             <span class="ctf-points">5 + 20 pts</span>
@@ -156,7 +267,7 @@
           <div class="ctf-read">Read writeup →</div>
         </a>
 
-        <a href="operation-lockergoga.html" class="ctf-card">
+        <a href="operation-lockergoga.html" class="ctf-card" data-difficulty="hard" data-points="30" data-category="person">
           <div class="ctf-card-top">
             <span class="ctf-difficulty ctf-hard">Hard</span>
             <span class="ctf-points">30 pts</span>
@@ -172,7 +283,7 @@
           <div class="ctf-read">Read writeup →</div>
         </a>
 
-        <a href="the-benarroch-file.html" class="ctf-card">
+        <a href="the-benarroch-file.html" class="ctf-card" data-difficulty="easy" data-points="10" data-category="person">
           <div class="ctf-card-top">
             <span class="ctf-difficulty ctf-easy">Easy</span>
             <span class="ctf-points">10 pts</span>
@@ -187,6 +298,7 @@
           <div class="ctf-read">Read writeup →</div>
         </a>
 
+      </div>
     </div>
   </article>
 
@@ -206,6 +318,62 @@
     </div>
     <p class="footer-copy">&copy; 2026 Colby Nieva. All rights reserved.</p>
   </footer>
+
+  <script>
+    (function () {
+      const cards = [...document.querySelectorAll('.ctf-card[data-difficulty]')];
+      const grid  = document.querySelector('.ctf-grid');
+      const countEl = document.getElementById('wi-count');
+      const noneEl  = document.getElementById('wi-none');
+      let diffFilter = 'all', catFilter = 'all', searchQuery = '';
+
+      function update() {
+        let visible = 0;
+        cards.forEach(card => {
+          const show =
+            (diffFilter === 'all' || card.dataset.difficulty === diffFilter) &&
+            (catFilter  === 'all' || card.dataset.category  === catFilter)  &&
+            (!searchQuery || card.textContent.toLowerCase().includes(searchQuery));
+          card.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        countEl.textContent = visible === cards.length
+          ? `Showing all ${cards.length} writeups`
+          : `${visible} of ${cards.length} writeups`;
+        noneEl.style.display = visible === 0 ? 'block' : 'none';
+      }
+
+
+      // Difficulty buttons
+      document.querySelectorAll('[data-diff]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-diff]').forEach(b => b.classList.remove('wi-active'));
+          btn.classList.add('wi-active');
+          diffFilter = btn.dataset.diff;
+          update();
+        });
+      });
+
+      // Category buttons
+      document.querySelectorAll('[data-cat]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-cat]').forEach(b => b.classList.remove('wi-active'));
+          btn.classList.add('wi-active');
+          catFilter = btn.dataset.cat;
+          update();
+        });
+      });
+
+      // Search
+      document.getElementById('wi-search').addEventListener('input', e => {
+        searchQuery = e.target.value.toLowerCase().trim();
+        update();
+      });
+
+
+      update();
+    })();
+  </script>
 
 </body>
 </html>

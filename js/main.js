@@ -161,6 +161,21 @@
     }
     drawParticles();
 
+    // ── PROJECT FILTER ──
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card[data-categories]');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('filter-active'));
+        btn.classList.add('filter-active');
+        const filter = btn.dataset.filter;
+        projectCards.forEach(card => {
+          const cats = card.dataset.categories || '';
+          card.style.display = (filter === 'all' || cats.split(' ').includes(filter)) ? '' : 'none';
+        });
+      });
+    });
+
     // ── SCROLL TO TOP ──
     const scrollTopBtn = document.getElementById('scroll-top');
     window.addEventListener('scroll', () => {
