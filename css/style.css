@@ -138,6 +138,45 @@
     }
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); }
 
+    .btn-download {
+      padding: 13px 28px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 7px;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+    }
+    .btn-download:hover { background: var(--gold); color: var(--navy); transform: translateY(-1px); }
+
+    .resume-download-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 40px;
+    }
+    .btn-download-resume {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 24px;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+    }
+    .btn-download-resume:hover { background: var(--gold); color: var(--navy); transform: translateY(-1px); }
+    .btn-download-resume svg { flex-shrink: 0; }
+
+
     .hero-right {
       background: var(--cream);
       display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -511,7 +550,7 @@
     }
     .project-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 21px; font-weight: 600; color: #fff; line-height: 1.2;
+      font-size: 21px; font-weight: 400; color: #fff; line-height: 1.2;
     }
     .project-subtitle {
       font-size: 10px; font-weight: 500; letter-spacing: 0.08em;
@@ -840,8 +879,8 @@
 }
 .ctf-stat-item:last-child { border-right: none; }
 .ctf-stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 26px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 22px;
   font-weight: 600;
   color: var(--gold);
   line-height: 1;
@@ -897,9 +936,9 @@
   padding: 4px 10px;
   border-radius: 2px;
 }
-.ctf-easy   { background: rgba(74,222,128,0.12); color: #15803d; border: 1px solid rgba(74,222,128,0.3); }
-.ctf-medium { background: rgba(184,151,90,0.12); color: var(--gold); border: 1px solid rgba(184,151,90,0.35); }
-.ctf-hard   { background: rgba(220,38,38,0.10); color: #b91c1c; border: 1px solid rgba(220,38,38,0.25); }
+.ctf-easy   { background: rgba(74,222,128,0.12);  color: #15803d; border: 1px solid rgba(74,222,128,0.35); }
+.ctf-medium { background: rgba(245,166,35,0.15);  color: #7a3d00; border: 1px solid rgba(245,166,35,0.45); }
+.ctf-hard   { background: rgba(220,38,38,0.10);   color: #b91c1c; border: 1px solid rgba(220,38,38,0.30); }
 
 .ctf-points {
   font-family: 'Courier New', monospace;
@@ -911,7 +950,7 @@
 .ctf-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--navy);
   line-height: 1.2;
   margin-bottom: 6px;

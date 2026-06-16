@@ -10,95 +10,6 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/writeup.css">
-  <style>
-    .wi-controls {
-      margin-bottom: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .wi-search-wrap {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-    .wi-search-icon {
-      position: absolute;
-      left: 14px;
-      color: var(--muted);
-      pointer-events: none;
-    }
-    .wi-search {
-      width: 100%;
-      padding: 11px 16px 11px 40px;
-      border: 1px solid var(--border);
-      background: #fff;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .wi-search:focus { border-color: var(--gold); }
-    .wi-search::placeholder { color: var(--muted); }
-
-    .wi-filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      align-items: center;
-    }
-    .wi-filter-sep {
-      width: 1px;
-      height: 20px;
-      background: var(--border);
-      flex-shrink: 0;
-      margin: 0 6px;
-    }
-    .wi-filter-group {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .wi-filter-label {
-      display: none;
-    }
-    .wi-filter-btns { display: flex; gap: 4px; }
-    .wi-btn {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--slate);
-      border: 1px solid var(--border);
-      background: #fff;
-      padding: 5px 12px;
-      cursor: pointer;
-      transition: all 0.18s;
-    }
-    .wi-btn:hover { border-color: var(--navy); color: var(--navy); }
-    .wi-btn.wi-active { background: var(--navy); color: #fff; border-color: var(--navy); }
-    .wi-btn.wi-active-easy  { background: #15803d; border-color: #15803d; color: #fff; }
-    .wi-btn.wi-active-medium { background: var(--gold); border-color: var(--gold); color: var(--navy); }
-    .wi-btn.wi-active-hard  { background: #b91c1c; border-color: #b91c1c; color: #fff; }
-
-
-    .wi-count {
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 400;
-      min-height: 18px;
-      margin-bottom: 4px;
-    }
-    .wi-none {
-      display: none;
-      padding: 48px 0;
-      text-align: center;
-      font-size: 14px;
-      color: var(--muted);
-      border: 1px dashed var(--border);
-      background: #fff;
-    }
-  </style>
 </head>
 <body>
 
@@ -125,6 +36,45 @@
         <h1 class="writeup-title">All Writeups</h1>
         <p class="writeup-source">My approach, methodology, and takeaways from <a href="https://ctf.osint.industries/challenges" target="_blank">ctf.osint.industries</a> challenges.</p>
       </header>
+
+      <!-- DASHBOARD -->
+      <div class="wi-dashboard">
+        <div class="wi-dashboard-top">
+          <div class="wi-dashboard-title">Challenge statistics</div>
+        </div>
+        <div class="wi-stats-row">
+          <div class="wi-stat">
+            <div class="wi-stat-num">10</div>
+            <div class="wi-stat-label">Solved</div>
+          </div>
+          <div class="wi-stat">
+            <div class="wi-stat-num">86</div>
+            <div class="wi-stat-label">Points</div>
+          </div>
+          <div class="wi-stat">
+            <div class="wi-stat-num">6</div>
+            <div class="wi-stat-label">Geolocation</div>
+          </div>
+          <div class="wi-stat">
+            <div class="wi-stat-num">4</div>
+            <div class="wi-stat-label">Person</div>
+          </div>
+        </div>
+        <div class="wi-diff-row">
+          <div class="wi-diff-pill wi-diff-easy">
+            <span class="wi-diff-pill-label">Easy</span>
+            <span class="wi-diff-pill-count">5</span>
+          </div>
+          <div class="wi-diff-pill wi-diff-medium">
+            <span class="wi-diff-pill-label">Medium</span>
+            <span class="wi-diff-pill-count">3</span>
+          </div>
+          <div class="wi-diff-pill wi-diff-hard">
+            <span class="wi-diff-pill-label">Hard</span>
+            <span class="wi-diff-pill-count">2</span>
+          </div>
+        </div>
+      </div>
 
       <!-- CONTROLS -->
       <div class="wi-controls">
@@ -373,6 +323,7 @@
 
       update();
     })();
+
   </script>
 
 </body>

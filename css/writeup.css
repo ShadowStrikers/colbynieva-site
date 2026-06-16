@@ -178,3 +178,163 @@
   .writeup { padding: 110px 0 60px; }
   .writeup-container { padding: 0 24px; }
 }
+
+/* ── WRITEUPS INDEX ── */
+.wi-controls {
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.wi-search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.wi-search-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--muted);
+  pointer-events: none;
+}
+.wi-search {
+  width: 100%;
+  padding: 11px 16px 11px 40px;
+  border: 1px solid var(--border);
+  background: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.wi-search:focus { border-color: var(--gold); }
+.wi-search::placeholder { color: var(--muted); }
+
+.wi-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+.wi-filter-sep {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+  flex-shrink: 0;
+  margin: 0 6px;
+}
+.wi-filter-group { display: flex; align-items: center; gap: 4px; }
+.wi-filter-label { display: none; }
+.wi-filter-btns { display: flex; gap: 4px; }
+.wi-btn {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--slate);
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.wi-btn:hover { border-color: var(--navy); color: var(--navy); }
+.wi-btn.wi-active { background: var(--navy); color: #fff; border-color: var(--navy); }
+.wi-btn.wi-active-easy   { background: #15803d; border-color: #15803d; color: #fff; }
+.wi-btn.wi-active-medium { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+.wi-btn.wi-active-hard   { background: #b91c1c; border-color: #b91c1c; color: #fff; }
+
+.wi-count {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 400;
+  min-height: 18px;
+  margin-bottom: 4px;
+}
+.wi-none {
+  display: none;
+  padding: 48px 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+  border: 1px dashed var(--border);
+  background: #fff;
+}
+
+/* Dashboard */
+.wi-dashboard {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 24px 28px 20px;
+  margin-bottom: 28px;
+}
+.wi-dashboard-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.wi-dashboard-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+}
+.wi-stats-row {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+.wi-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 16px 12px;
+  border-right: 1px solid var(--border);
+}
+.wi-stat:last-child { border-right: none; }
+.wi-stat-num {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--gold);
+  line-height: 1;
+}
+.wi-stat-label {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.wi-diff-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+.wi-diff-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 400;
+}
+.wi-diff-pill-label { font-weight: 400; }
+.wi-diff-pill-count { font-weight: 600; font-size: 15px; }
+.wi-diff-easy   { background: rgba(74,222,128,0.12);  color: #15803d; border: 1px solid rgba(74,222,128,0.35); }
+.wi-diff-medium { background: rgba(245,166,35,0.15);  color: #7a3d00; border: 1px solid rgba(245,166,35,0.45); }
+.wi-diff-hard   { background: rgba(220,38,38,0.10);   color: #b91c1c; border: 1px solid rgba(220,38,38,0.30); }
+
+@media (max-width: 600px) {
+  .wi-stats-row { flex-wrap: wrap; }
+  .wi-stat { flex: 1 1 45%; border-right: none; border-bottom: 1px solid var(--border); }
+  .wi-diff-row { grid-template-columns: 1fr; }
+}
