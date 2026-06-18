@@ -5,6 +5,12 @@
       const skipBtn = document.getElementById('boot-skip');
       let finished = false;
 
+      if (sessionStorage.getItem('booted')) {
+        overlay.remove();
+        document.body.style.overflow = '';
+        return;
+      }
+
       const bootLines = [
         {t: 'colby@portfolio:~$ ', cls: 'bt-prompt'},
         {t: 'whoami\n', cls: 'bt-out'},
@@ -44,6 +50,7 @@
         if (finished) return;
         finished = true;
         clearTimeout(timer);
+        sessionStorage.setItem('booted', '1');
         overlay.classList.add('boot-done');
         document.body.style.overflow = '';
         setTimeout(() => { if (overlay.parentNode) overlay.remove(); }, 700);
