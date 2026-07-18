@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Operation HILTON CTF Writeup · Colby Nieva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/writeup.css">
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">Colby Nieva</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="index.html">CTF</a></li>
+      <li><a href="../index.html#resume">Resume</a></li>
+      <li><a href="mailto:cnieva101@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <article class="writeup">
+    <div class="writeup-container">
+
+      <a href="index.html" class="writeup-back">← All writeups</a>
+
+      <header class="writeup-header">
+        <div class="writeup-meta-top">
+          <span class="ctf-difficulty ctf-easy">Easy</span>
+          <span class="ctf-points">5 pts · 20 pts</span>
+          <span class="writeup-cat">OSINT · Person Investigation</span>
+        </div>
+        <h1 class="writeup-title">Operation HILTON — Parts 1 and 2</h1>
+        <p class="writeup-source">CTF · <a href="https://ctf.osint.industries/challenges" target="_blank">ctf.osint.industries</a></p>
+      </header>
+
+      <section class="writeup-section">
+        <h2>Background</h2>
+        <p>At 20:36 ET on April 25, 2026, five to eight gunshots were reported near the perimeter of the Washington Hilton during the White House Correspondents' Dinner. President Trump was extracted by the Secret Service and a suspect was apprehended on site. The FBI shared photos of seized equipment on social media. The press released only a name and age. These two challenges task the analyst with reconstructing the suspect's identity file and identifying the weapon found at the scene.</p>
+      </section>
+
+      <!-- PART 1 -->
+      <section class="writeup-section">
+        <h2>Part 1 — Identity</h2>
+
+        <h3>Challenge Overview</h3>
+        <p>The DC Metropolitan Police Department identified the suspect. The task is to provide his full name, age, and hometown in exact flag format.</p>
+
+        <figure class="writeup-image">
+          <img src="../images/ctf/op-hilton-1-challenge.jpg" alt="Operation HILTON Part 1 challenge prompt">
+        </figure>
+
+        <h3>Finding the Information</h3>
+        <p>Searching the suspect's name alongside the event immediately returned the Wikipedia article for the <strong>2026 White House Correspondents' Dinner shooting</strong>. The article documented the incident in full, including the suspect's full legal name, age, and city of origin as reported by MPDC and major press outlets.</p>
+
+        <figure class="writeup-image">
+          <img src="../images/ctf/cole-allen.jpg" alt="Wikipedia article for 2026 White House Correspondents Dinner shooting">
+        </figure>
+
+        <p>The article confirmed the suspect as <strong>Cole Tomas Allen</strong>, age <strong>31</strong>, from <strong>Torrance</strong>, California.</p>
+
+        <h3>Flag</h3>
+        <pre class="writeup-code"><code>OSINT{Cole_Tomas_Allen_31_Torrance}</code></pre>
+      </section>
+
+      <!-- PART 2 -->
+      <section class="writeup-section">
+        <h2>Part 2 — The Weapon</h2>
+
+        <h3>Challenge Overview</h3>
+        <p>The FBI published photos of the seized equipment. One image shows a compact PDW-type shoulder weapon chambered in 4.6x30mm by a German manufacturer. The task is to identify the exact model, including brand and full designation. The hint notes that if two variants are possible, the barrel length and selector position in the photo are the deciding factors.</p>
+
+        <figure class="writeup-image">
+          <img src="../images/ctf/op-hilton-2-challenge.jpg" alt="Operation HILTON Part 2 challenge prompt">
+        </figure>
+
+        <h3>Identifying the Weapon</h3>
+        <p>Searching the description directly, "compact PDW-type shoulder weapon 4.6x30mm German manufacturer," returns one result: the <strong>Heckler and Koch MP7</strong>. The MP7 is the only PDW in production chambered in 4.6x30mm and manufactured in Germany. The two common variants are the MP7A1 and MP7A2, which differ primarily in barrel length and grip design.</p>
+        <p>Reviewing the FBI photo, the barrel length and selector switch configuration are consistent with the <strong>MP7A1</strong> variant, confirming the exact model.</p>
+
+        <figure class="writeup-image">
+          <img src="../images/ctf/weapon.jpg" alt="FBI photo of seized HK MP7A1">
+        </figure>
+
+        <h3>Flag</h3>
+        <pre class="writeup-code"><code>OSINT{HK_MP7A1}</code></pre>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Conclusion</h2>
+        <p>Both challenges in Operation HILTON required minimal pivoting. The identity challenge resolved in a single search because the incident generated immediate, well-documented press coverage indexed on Wikipedia. The weapon challenge was solved purely through specification matching: the caliber and country of manufacture narrowed the field to one manufacturer, and the photo detail resolved which variant.</p>
+        <p>Key takeaways:</p>
+        <ul style="margin: 16px 0 0 20px; color: #4a5a6a; font-weight: 300; line-height: 1.9;">
+          <li>High-profile public incidents are documented quickly and thoroughly across open sources, making Wikipedia a reliable first stop.</li>
+          <li>Technical specifications like caliber and country of origin are often enough to uniquely identify a weapon without needing to see the firearm directly.</li>
+          <li>When multiple variants exist, physical details in evidence photos are the tiebreaker.</li>
+        </ul>
+      </section>
+
+      <div class="writeup-footer-nav">
+        <a href="index.html" class="writeup-back">← Back to all writeups</a>
+      </div>
+
+    </div>
+  </article>
+
+  <footer>
+    <div class="footer-name">Colby Nieva</div>
+    <div class="footer-icons">
+      <a href="https://www.linkedin.com/in/colby-nieva-3917b820a/" target="_blank" class="social-icon" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/ShadowStrikers" target="_blank" class="social-icon" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a href="mailto:cnieva101@gmail.com" class="social-icon" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-.503.205-.955.537-1.285L12 13.09 23.463 4.17c.332.33.537.782.537 1.287z"/></svg>
+      </a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Colby Nieva. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
