@@ -209,6 +209,10 @@
       background: var(--light);
       padding: 20px 24px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     .stat-num {
       font-family: 'Cormorant Garamond', serif;
