@@ -223,6 +223,10 @@
       letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--muted);
     }
+    .stat-num.stat-num-sm {
+      font-size: 22px;
+      line-height: 32px;
+    }
 
     /* ── SECTION SHARED ── */
     section { padding: 100px 0; }
