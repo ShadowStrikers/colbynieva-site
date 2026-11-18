@@ -94,7 +94,7 @@
     });
 
     // ── TYPING ANIMATION ──
-    const phrases = ['Cybersecurity Graduate', 'Security Tools Developer', 'OSINT Researcher', 'Open to New Opportunities'];
+    const phrases = ['Cybersecurity Graduate', 'Security+ Certified', 'Security Tools Developer', 'OSINT Researcher', 'Open to New Opportunities'];
     let phraseIdx = 0, charIdx = 0, deleting = false;
     const typingEl = document.getElementById('typing-text');
     function type() {
