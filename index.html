@@ -56,6 +56,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#ctf">CTF</a></li>
+      <li><a href="#labs">Labs</a></li>
       <li><a href="#resume">Resume</a></li>
       <li><a href="mailto:cnieva101@gmail.com">Contact</a></li>
     </ul>
@@ -72,8 +73,7 @@
         CompTIA Security+ certified cybersecurity graduate and security tool developer with a passion for building practical open-source solutions in OSINT, breach analysis, and password security. Experienced in leading teams, collaborating on technical projects, and turning complex security challenges into usable tools. Graduated cum laude and recognized on the Dean's List for strong academic performance. Committed to continuous learning, research, and contributing to the cybersecurity community.
       </p>
       <div class="hero-cta">
-        <a href="#resume" class="btn-primary">View Resume</a>
-        <a href="resume.pdf" download="Colby_Nieva_Resume.pdf" class="btn-download">↓ Download Resume</a>
+        <a href="resume.pdf" download="Colby_Nieva_Resume.pdf" class="btn-primary">↓ Download Resume</a>
         <a href="#about" class="btn-outline">About Me</a>
       </div>
       <div class="hero-socials">
@@ -156,7 +156,10 @@
             </div>
             <div class="info-row">
               <span class="info-key">Certified</span>
-              <span class="info-val">CompTIA <strong>Security+</strong></span>
+              <a href="https://www.credly.com/badges/fe8b7f23-ca8f-42e9-919a-a94a74d37e61/public_url" target="_blank" rel="noopener noreferrer" class="info-val info-link">
+                CompTIA <strong>Security+</strong>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
             </div>
           </div>
           <div class="info-card">
@@ -407,6 +410,31 @@
     </div>
   </section>
 
+  <!-- LABS -->
+  <section id="labs">
+    <div class="container">
+      <p class="section-label fade-up">Security Engineering</p>
+      <h2 class="section-title fade-up">Homelab Projects</h2>
+      <div class="divider fade-up"></div>
+      <p class="ctf-intro fade-up">Hands-on attack simulation and detection engineering.</p>
+
+      <div class="ctf-grid">
+
+        <a href="writeups/ad-attack-detection-lab.html" class="ctf-card fade-up">
+          <div class="ctf-title">Active Directory Attack and Detection Lab</div>
+          <p class="ctf-snippet">Built an isolated AD environment, simulated password spray and Kerberoasting from Kali Linux, and wrote two custom Wazuh detection rules that fire in real time on events 4771 and 4769.</p>
+          <div class="ctf-meta">
+            <span class="ctf-tag">Windows Server 2025</span>
+            <span class="ctf-tag">Wazuh 4.14.5</span>
+            <span class="ctf-tag">Kerberos</span>
+          </div>
+          <div class="ctf-read">Read writeup →</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
   <!-- RESUME -->
   <section id="resume">
     <div class="container">
@@ -463,6 +491,7 @@
                   <li>Configured a Wazuh Manager, Ubuntu endpoint agent, and Kali Linux attacker across an isolated VirtualBox internal network with static IP addressing and custom network segmentation</li>
                   <li>Performed active threat simulation from the attacker node while monitoring detection coverage from the analyst perspective, reinforcing both offensive awareness and defensive response methodology</li>
                 </ul>
+                <a href="writeups/ad-attack-detection-lab.html" class="job-link">Read the AD attack &amp; detection writeup →</a>
               </div>
             </div>
           </div>

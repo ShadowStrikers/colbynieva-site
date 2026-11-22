@@ -318,6 +318,40 @@
       font-size: 14px; color: var(--text);
       font-weight: 400; text-align: right;
     }
+    .info-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--gold);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .info-link::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: -2px;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.25s ease;
+    }
+    .info-link:hover { color: var(--gold2); }
+    .info-link:hover::after { transform: scaleX(1); transform-origin: left; }
+    .info-link svg {
+      width: 11px; height: 11px;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+    .info-link:hover svg { transform: translate(2px, -2px); }
+
+    /* ── LABS ── */
+    #labs {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
 
     /* ── RESUME ── */
     #resume { background: var(--cream); }
@@ -385,6 +419,15 @@
       position: absolute; left: 0;
       color: var(--gold); font-weight: 400;
     }
+    .job-link {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .job-link:hover { color: var(--gold2); }
 
     /* Resume sidebar */
     .resume-sidebar {}
